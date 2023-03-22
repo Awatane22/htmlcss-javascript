@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Image Slider</title>
+
+
+    <style>
+        body {
+            margin: 0;
+        }
+
+        #im {
+            height: 699px;
+            width: 1536px;
+        }
+
+        .d1 {
+            position: relative;
+            width: 100%;
+
+
+
+        }
+
+        .slide img {
+            width: 100%;
+
+
+        }
+
+
+        .arrow {
+            cursor: pointer;
+            position: absolute;
+            top: 45%;
+            color: black;
+            background-color: rgba(255, 255, 255, 0.775);
+            padding: 8px 19px;
+            border-radius: 50%;
+            font-size: 30px;
+            font-weight: bold;
+
+
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .cp {
+            columns: white;
+            font-size: 30px;
+            font-weight: bold;
+            position: absolute;
+            color: white;
+            bottom: 0px;
+            width: 100%;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 15px 0px;
+
+        }
+
+        .slide {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="d1">
+
+        <div class="slide">
+            <img src="img/1.jpg" id="im">
+            <div class="cp">Caption Text 1</div>
+
+        </div>
+
+        <div class="slide">
+            <img src="img/2.jpg" id="im">
+            <div class="cp">Caption Text 2 </div>
+        </div>
+
+
+
+        <div class="slide">
+            <img src="img/3.jpg" id="im">
+            <div class="cp">Caption Text 3</div>
+        </div>
+
+        <div class="slide">
+            <img src="img/4.jpg" id="im">
+            <div class="cp">Caption Text 4</div>
+        </div>
+
+        <div class="slide">
+            <img src="img/5.jpg" id="im">
+            <div class="cp">Caption Text 5</div>
+        </div>
+
+        <div class="slide">
+            <img src="img/6.jpg" id="im">
+            <div class="cp">Caption Text 6</div>
+
+        </div>
+
+        <div class="slide">
+            <img src="img/7.jpg" id="im">
+            <div class="cp">Caption Text 7</div>
+        </div>
+
+        <div class="slide">
+            <img src="img/8.jpg" id="im">
+            <div class="cp">Caption Text 8</div>
+        </div>
+
+        <span class="arrow prev" onclick="control(-1)">&#10094;</span>
+        <span class="arrow next" onclick="control(1)">&#10095;</span>
+
+
+    </div>
+    <script>
+
+        let count = 2;
+
+
+        slideshow(count);
+
+        function slideshow(x) {
+            let slids = document.getElementsByClassName("slide");
+            if (x == slids.length) {
+                count = 0;
+                x = 0;
+            }
+            if (x < 0) {
+                count = slids.length - 1;
+                x = slids.length - 1;
+            }
+            for (let y of slids) {
+                y.style.display = "none";// visible
+            }
+            
+            slids[x].style.display = "block";
+
+        }
+        function control(y) {
+            count = count + y;
+            slideshow(count); ///all visible
+        }
+    </script>
+
+</body>
+
+</html>
